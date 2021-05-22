@@ -122,6 +122,65 @@ const HTMLPractice = () => {
       <p>The <code>s</code> element renders a text with a strikethrough. Use the <code>s</code> element to represent things that are no longer relevant or no longer accurate. However, <code>s</code> is not appropriate when indicating document edits; for that, use the <code>del</code> and <code>ins</code> elements, as appropriate.</p>
       <p>Example: <s>There will be a few tickets available at the box office tonight.</s> SOLD OUT!</p>
       <h3><code>samp</code></h3>
+      <p>The <code>samp</code> element is used to enclose inline text which represents a sample (or quoted) output from a computer program.</p>
+      <p>Example: I was trying to boot my computer but got this message:</p>
+      <p> <samp>Keyboard not found <br/> Press F1 to continue</samp></p>
+      <h3><code>time</code></h3>
+      <p>The <code>time</code> element represents a specific period in time. It may include the <code>datetime</code> attribute to translate dates into a machine-readable format, allowing for better search engine results or custom features such as reminders. </p>
+      <p>It may represent one of the following</p>
+      <ul>
+        <li>A time on a 24-hour clock</li>
+        <li>A precise date in the Gregorian calendar (time and timezone optional)</li>
+        <li>A valid time duration</li>
+      </ul>
+      <p>Example: The Cure will be celebrating their 40th anniversary on <time dateTime="2018-07-07">July 7</time></p>
+      <p>The concert starts at <time dateTime="20:00">20:00</time> and you'll be able to enjoy the band for at least <time dateTime="PTH230M">2h 30m</time></p>
+      <h3><code>var</code></h3>
+      <p>The <code>var</code> element represents the name of a variable in a mathematical expression or a programming context. It's usualy presented using an italicized version of the current typeface, although that behavior is browser-dependent</p>
+      <p>Example: The volume of a cube is <var>l</var> x <var>w</var> x <var>h</var></p>
+      <h2>Image and Multimedia</h2>
+      <h3><code>area/map</code></h3>
+      <p>The <code>area</code> element defines an area inside an image map that has predefined clickable areas. An image map allows geometric areas of an image to be associated with hypertext link. This element is only used within a <code>map</code> element.</p>
+      <p>The <code>map</code> element is used with <code>area</code> elements to define an image map</p>
+      <p>Example:</p>
+      <map name="infographic">
+        <area shape="poly" coords="130,147,200,107,254,219,130,228"
+              href="https://developer.mozilla.org/docs/Web/HTML"
+              target="_blank" alt="HTML" />
+        <area shape="poly" coords="130,147,130,228,6,219,59,107"
+              href="https://developer.mozilla.org/docs/Web/CSS"
+              target="_blank" alt="CSS" />
+        <area shape="poly" coords="130,147,200,107,130,4,59,107"
+              href="https://developer.mozilla.org/docs/Web/JavaScript"
+              target="_blank" alt="JavaScript" />
+      </map>
+      <img src="https://interactive-examples.mdn.mozilla.net/media/examples/mdn-info2.png" alt="MDN infographic" useMap="#infographic" />
+      <p>Note to self: Why doesn't this work?? I copy-pasted from their website - answer is that dimensions are probably not the same</p>
+      <h3><code>audio</code></h3>
+      <p>The <code>audio</code> element is used to embed sound content in documents. It may contain one or more audio sources, represented in the <code>src</code> attribute or the <code>source</code> element</p>
+      <p>The content inside the opening and closing tags is shown as a fallback in browsers that don't support the element</p>
+      <p>Example: </p>
+      <figure>
+          <figcaption>Listen to the T-Rex</figcaption>
+          <audio controls={true} src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3">The audio element is not supported in your browser!</audio>
+      </figure>
+      <h2>Embedded Content</h2>
+      <h3><code>picture</code></h3>
+      <p>The <code>picture</code> element contains zero or more <code>source</code> elements and one <code>img</code> element to offer alternative versions of an image for different display/device scenarios.</p>
+      <p>The browser will consider each child source and choose teh best match among them. If no matches are found, or the browser doesn't support the picture element, the URL of the elemen'ts src attribute is selected. The selected image is then presented in the space occupied by the img element</p>
+      <p>Example: Change the width of the browser window to see the image change.</p>
+      <picture>
+        <source srcSet="https://interactive-examples.mdn.mozilla.net/media/cc0-images/surfer-240-200.jpg" media="(min-width: 800px)"/>
+        <img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/painted-hand-298-332.jpg" alt="" />
+      </picture>
+      <p>Common use cases for picture:</p>
+      <ol>
+        <li>Art direction - cropping or modifying images for different <code>media</code> conditions (simpler version of a detailed image on smaller displays, for example)</li>
+        <li>Offering alternative image formats, such as AVIF or WEBP, not supported on all browsers</li>
+        <li>Saving bandwidth and speeindg page load times - loading most appropraite image for viewer's display</li>
+      </ol>
+      <h3><code>portal</code></h3>
+      <p>The <code>portal</code> element enables the embedding of another HTML page into the current one for the purposes of allowing smoother navigation into new pages. A portal is similar to an iframe. An iframe allows a separate browsing context to be embedded. However, the embedded content of a portal is more limited than that of an iframe. It cannot be interacted with, and therefore is not suitable for embedding widgets into a document. Instead, the portal acts as a preview of the content of another page. It can be navigated into, therefore allowing for seamless transition into the embedded content.</p>
     </main>
   );
 }
